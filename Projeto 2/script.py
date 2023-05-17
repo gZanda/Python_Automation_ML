@@ -1,0 +1,1 @@
+# Objetivo: Analisar os dados e encontrar clientes ideais
