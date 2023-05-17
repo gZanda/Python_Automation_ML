@@ -1,4 +1,4 @@
-# Objetivo: Analisar os dados e encontrar clientes ideais
+# Objetivo: Analisar os dados e encontrar clientes ideais ( MAIOR NOTA )
 
 # plotly = Criar gráficos
 import pandas, plotly.express as plot
