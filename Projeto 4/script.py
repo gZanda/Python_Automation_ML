@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split    # Para ensinar a IA auto
 from sklearn.linear_model import LinearRegression       # Para usar modelo de REGRESSÃO LINEAR
 from sklearn.ensemble import RandomForestRegressor      # Para usar modelo de ÁRVORE DE DECISÃO
 from sklearn.metrics import r2_score                    # Para conferir a qualidade da PREVISÃO
-
+import tkinter
 
 # 1° Ler base de dados ----------------------------------------------------------------------------------
 
@@ -20,7 +20,8 @@ corr_preco = tabela.corr()[["Preco"]]  # Calculando correlação e exibindo o PR
 
 # 3° Plotar um gráfico -----------------------------------------------------------------------------------
 
-sns.heatmap(corr_preco, cmap="Oranges", annot=True) # Criar com o Seaborn
+sns.heatmap(corr_preco, cmap="Oranges", annot=True)             # Criar com o Seaborn
+plt.subplots_adjust(left=0.2, bottom=0.2)   # Centraliza na janela
 plt.show()  # Mostrar com Matplot
 
 # 4° Criar I.A -------------------------------------------------------------------------------------------
@@ -62,6 +63,7 @@ sns.lineplot(data = tabela_aux)
 plt.show()
 
 # 5° usar para fazer novas previsões --------------------------------------------------------------------
+
 tabela_resultado = pandas.read_csv("novos_barcos.csv")   # Novos dados
 previsao = modelo_arvore.predict(tabela_resultado)       # Fazer previsão
 tabela_resultado["Valor Previsto"] = pandas.Series([])   # Fazer nova coluna na tabela a ser Exibida
@@ -69,8 +71,10 @@ tabela_resultado["Valor Previsto"] = previsao            # Associar os valores d
 
 # Printar valores previstos
 print("\nPrevisoes: ")
+x = 1
 for i in previsao:
-    print("Previsao:",i)
+    print(f"Previsao {x}:",i)
+    x+=1
 
 # Printar tabela
-print(tabela_resultado)
+print("\n-------------------------------------------------------------------------------------\n",tabela_resultado)
